@@ -27,6 +27,7 @@
     edit-server ; use Emacs to edit textarea in browser, need browser addon
     vimrc-mode
     rjsx-mode ; fixed the indent issue in jsx
+    package-lint ; for melpa pull request only
     auto-yasnippet
     typescript-mode ; the stable version lacks important feature (highlight function names)
     websocket ; to talk to the browser
@@ -216,6 +217,7 @@ You still need modify `package-archives' in \"init-elpa.el\" to PERMANENTLY use 
 ; color-theme 6.6.1 in elpa is buggy
 (require-package 'amx)
 (require-package 'avy)
+(require-package 'popup) ; some old package need it
 (require-package 'auto-yasnippet)
 (require-package 'ace-link)
 (require-package 'csv-mode)
