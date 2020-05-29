@@ -171,7 +171,7 @@
   (unless (my-vc-merge-p)
     ;; my personal setup, other major-mode specific setup need it.
     ;; It's dependent on *.el in `my-site-lisp-dir'
-    (load (expand-file-name "personal.el" user-emacs-directory)) t nil)
+    (load (expand-file-name "personal.el" user-emacs-directory) t nil)
 
     ;; @see https://www.reddit.com/r/emacs/comments/4q4ixw/how_to_forbid_emacs_to_touch_configuration_files/
     ;; See `custom-file' for details.
