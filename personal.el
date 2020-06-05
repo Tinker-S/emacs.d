@@ -10,6 +10,10 @@
     (if (file-exists-p name)
         (find-file name))))
 
+(with-eval-after-load 'evil
+  (my-comma-leader-def
+    "av" 'my-open-file-from-clipboard))
+
 (setq my-favourite-color-themes
       '(doom-Iosvkem
         doom-city-lights
