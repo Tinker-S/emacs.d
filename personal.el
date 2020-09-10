@@ -19,9 +19,6 @@
         doom-gruvbox
         doom-one
         doom-tomorrow-night
-        doom-gruvbox
-        dracula
-        srcery
-        leuven))
+        doom-gruvbox))
 
 (my-random-color-theme)
