@@ -14,6 +14,8 @@
   (my-comma-leader-def
     "av" 'my-open-file-from-clipboard))
 
+(require-package 'go-mode)
+
 (setq my-favourite-color-themes
       '(doom-dark+
         doom-gruvbox
