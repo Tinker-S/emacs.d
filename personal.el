@@ -14,13 +14,17 @@
   (my-comma-leader-def
     "av" 'my-open-file-from-clipboard))
 
+;; add go mode
 (require-package 'go-mode)
 
+;; turn on keyfreq mode
+(turnon-keyfreq-mode)
+
+;; random load some favourite color themes
 (setq my-favourite-color-themes
       '(doom-dark+
         doom-gruvbox
         doom-one
         doom-tomorrow-night
         doom-gruvbox))
-
 (my-random-color-theme)
