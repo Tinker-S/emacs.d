@@ -14,8 +14,7 @@
   (my-comma-leader-def
     "av" 'my-open-file-from-clipboard))
 
-;; add go mode
-(require-package 'go-mode)
+(require-init 'init-go-mode t)
 
 ;; turn on keyfreq mode
 (turnon-keyfreq-mode)
