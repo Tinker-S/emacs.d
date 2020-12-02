@@ -2,12 +2,15 @@
 
 (defun my-initialize-package ()
   ;; optimization, no need to activate all the packages so early
-  (setq package-enable-at-startup nil)
   (cond
    (*emacs27*
-    ;; you still need run `M-x package-quickstart-refresh' at least once
-    ;; to generate a big file containing `autoload' statements
-    (setq package-quick-start t)
+    ;; you need run `M-x package-quickstart-refresh' at least once
+    ;; to generate file "package-quickstart.el'.
+    ;; It contains the `autoload' statements for all packages.
+    ;; Please note once this file is created, you can't automatically
+    ;; install missing package any more
+    ;; You also need need re-generate this file if any package is upgraded.
+    (setq package-quickstart t)
 
     ;; esup need call `package-initialize'
     ;; @see https://github.com/jschaf/esup/issues/84
