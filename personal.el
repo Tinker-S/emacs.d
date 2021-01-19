@@ -19,11 +19,5 @@
 ;; turn on keyfreq mode
 (turnon-keyfreq-mode)
 
-;; random load some favourite color themes
-(setq my-favourite-color-themes
-      '(doom-dark+
-        doom-gruvbox
-        doom-one
-        doom-tomorrow-night
-        doom-gruvbox))
-(my-random-color-theme)
+;; I prefer doom-gruvbox theme for now.
+(load-theme 'doom-gruvbox t)
