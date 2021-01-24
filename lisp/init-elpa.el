@@ -134,41 +134,9 @@
 ;; I don't use any packages from GNU ELPA because I want to minimize
 ;; dependency on 3rd party web site.
 (setq package-archives
-      '(
-        ;; uncomment below line if you need use GNU ELPA
-        ;; ("gnu" . "https://elpa.gnu.org/packages/")
-        ;; ("melpa" . "https://melpa.org/packages/")
-        ;; ("melpa-stable" . "https://stable.melpa.org/packages/")
-
-        ;; Use either 163 or tsinghua mirror repository when official melpa
-        ;; is slow or shutdown.
-
-        ;; {{ Option 1: 163 mirror repository:
-        ;; ("gnu" . "https://mirrors.163.com/elpa/gnu/")
-        ("melpa" . "https://mirrors.163.com/elpa/melpa/")
-        ("melpa-stable" . "https://mirrors.163.com/elpa/melpa-stable/")
-        ;; }}
-
-        ;; ;; {{ Option 2: tsinghua mirror repository
-        ;; ;; @see https://mirror.tuna.tsinghua.edu.cn/help/elpa/ on usage:
-        ;; ;; ("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
-        ;; ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
-        ;; ("melpa-stable" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa-stable/")
-        ;; }}
-        ))
-
-(defvar my-ask-elpa-mirror t)
-(when (and (not noninteractive) ; no popup in batch mode
-           my-ask-elpa-mirror
-           (not (file-exists-p (file-truename (concat my-emacs-d "elpa"))))
-           (yes-or-no-p "Switch to faster package repositories in China temporarily?
-You still need modify `package-archives' in \"init-elpa.el\" to PERMANENTLY use this ELPA mirror."))
-  (setq package-archives
-        '(("melpa" . "https://mirrors.163.com/elpa/melpa/")
-          ("melpa-stable" . "https://mirrors.163.com/elpa/melpa-stable/"))))
-
-;; Un-comment below line if you follow "Install stable version in easiest way"
-;; (setq package-archives '(("myelpa" . "~/myelpa/")))
+      '(("gnu" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+        ("melpa" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
+        ("melpa-stable" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa-stable/")))
 
 ;; my local repository is always needed.
 (push (cons "localelpa" (concat my-emacs-d "localelpa/")) package-archives)
@@ -286,7 +254,6 @@ You still need modify `package-archives' in \"init-elpa.el\" to PERMANENTLY use 
 (require-package 'pomodoro)
 ;; rvm-open-gem to get gem's code
 (require-package 'rvm)
-;; C-x r l to list bookmarks
 (require-package 'js-doc)
 (require-package 'js2-mode)
 (require-package 'rjsx-mode)
