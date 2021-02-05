@@ -12,7 +12,12 @@
 
 (with-eval-after-load 'evil
   (my-comma-leader-def
-    "av" 'my-open-file-from-clipboard))
+    "av" 'my-open-file-from-clipboard
+    "xq" 'read-only-mode
+    "xg" 'magit-status))
+
+(with-eval-after-load 'evil-matchit
+  (setq evilmi-shortcut "m"))
 
 (require-init 'init-go-mode t)
 
