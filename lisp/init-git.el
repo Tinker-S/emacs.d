@@ -190,6 +190,10 @@ Show the diff between current working code and git head."
       (message "DONE! git add %s" filename))))
 
 ;; {{ goto next/previous hunk
+(defvar my-goto-conflict-hunk-fns
+  '(("n" my-next-conflict-hunk)
+    ("p" my-prev-conflict-hunk)))
+
 (defun my-goto-conflict-hunk-internal (forward-p)
   "Goto specific hunk.  If forward-p is t, go in forward direction."
   ;; @see https://emacs.stackexchange.com/questions/63413/finding-git-conflict-in-the-same-buffer-if-cursor-is-at-end-of-the-buffer#63414
@@ -205,27 +209,21 @@ Show the diff between current working code and git head."
             (goto-char prev-pos)
             (message "No conflicts found")))))))
 
-(defun my-setup-keymap (forward-p)
-  "Set keymap by FORWARD-P."
-  (let ((echo-keystrokes nil))
-    (my-goto-conflict-hunk-internal forward-p)
-    (message "Goto conflict hunk: [n]ext [p]revious [q]uit")
-    (set-transient-map
-     (let ((map (make-sparse-keymap)))
-       (define-key map (kbd "n") #'my-next-conflict-hunk)
-       (define-key map (kbd "p") #'my-prev-conflict-hunk)
-       map)
-     t)))
-
 (defun my-next-conflict-hunk ()
   "Go to next conflict hunk."
   (interactive)
-  (my-setup-keymap t))
+  (my-setup-extra-keymap my-goto-conflict-hunk-fns
+                         "Goto conflict hunk: [n]ext [p]revious [q]uit"
+                         'my-goto-conflict-hunk-internal
+                         t))
 
 (defun my-prev-conflict-hunk ()
   "Go to previous conflict hunk."
   (interactive)
-  (my-setup-keymap nil))
+  (my-setup-extra-keymap my-goto-conflict-hunk-fns
+                         "Goto conflict hunk: [n]ext [p]revious [q]uit"
+                         'my-goto-conflict-hunk-internal
+                         nil))
 ;; }}
 
 ;; {{
