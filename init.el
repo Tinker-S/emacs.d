@@ -113,8 +113,6 @@
   (require-init 'init-keyfreq t)
   (require-init 'init-httpd t)
 
-  ;; projectile costs 7% startup time
-
   ;; don't play with color-theme in light weight mode
   ;; color themes are already installed in `init-elpa.el'
   (require-init 'init-theme)
@@ -131,10 +129,6 @@
   (require-init 'init-hydra) ; hotkey is required everywhere
   ;; use evil mode (vi key binding)
   (require-init 'init-evil) ; init-evil dependent on init-clipboard
-
-  ;; ediff configuration should be last so it can override
-  ;; the key bindings in previous configuration
-  (require-init 'init-ediff)
 
   ;; @see https://github.com/hlissner/doom-emacs/wiki/FAQ
   ;; Adding directories under "site-lisp/" to `load-path' slows
