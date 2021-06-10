@@ -23,6 +23,3 @@
 
 ;; turn on keyfreq mode
 (turnon-keyfreq-mode)
-
-;; I prefer doom-gruvbox theme for now.
-(load-theme 'doom-gruvbox t)
